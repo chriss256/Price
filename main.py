@@ -24,13 +24,12 @@ def compute_indicators(data):
 def check_divergence(data):
     if len(data) < 2:
         return False, False
-    
-        low1, low2 = data['low'].iloc[-2], data['low'].iloc[-1]
+
+    low1, low2 = data['low'].iloc[-2], data['low'].iloc[-1]
     high1, high2 = data['high'].iloc[-2], data['high'].iloc[-1]
     rsi1, rsi2 = data['RSI'].iloc[-2], data['RSI'].iloc[-1]
 
     bullish_divergence = low2 < low1 and rsi2 > rsi1
-
     bearish_divergence = high2 > high1 and rsi2 < rsi1
 
     return bullish_divergence, bearish_divergence
